@@ -1,7 +1,7 @@
 import { OrbitingCircles } from './OrbitCircles'
 
 export function FrameWorks() {
-    const skills = ['html5', 'git', 'javascript', 'sqlite', 'microsoft', 'react', 'dotnet', 'css3', "auth0",]
+    const skills = ['html5', 'git', 'javascript', 'sqlite', 'microsoft', 'react', 'dotnet', 'css3', 'python','linux', 'typescript', 'django', 'vitejs', 'github', 'tailwindcss']
   return (
     <div className="relative flex h-[15rem] w-full flex-col items-center justify-center">
       <OrbitingCircles iconSize={40}>
