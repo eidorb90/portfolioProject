@@ -1,3 +1,4 @@
+// @ts-ignore: Navbar is a JS module without types
 import  Navbar from "./sections/Navbar"
 import Hero from "./sections/Hero"
 
