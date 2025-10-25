@@ -7,7 +7,8 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   server: {
     allowedHosts: [
-      'portfolio.brodie-rogers.com'
+      'portfolio.brodie-rogers.com',
+      'test.brodie-rogers.com'
     ]
   },
   plugins: [
