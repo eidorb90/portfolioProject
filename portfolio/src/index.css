@@ -96,6 +96,13 @@ body {
   @apply relative px-1 py-4 text-sm text-center rounded-full font-extralight bg-primary w-[12rem] cursor-pointer overflow-hidden;
 }
 
+.grid-default-color {
+  /* Change this: */
+  /* background-color: #1a1a1a; */
+  /* To this (using an alpha value): */
+  background-color: rgba(26, 26, 26, 0.85); /* 85% opacity */
+}
+
 /* About Section */
 .grid-1 {
   @apply row-span-2 md:col-span-3 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
@@ -114,14 +121,69 @@ body {
 }
 
 .grid-default-color {
-  @apply p-6 bg-gradient-to-b from-storm to-indigo rounded-2xl;
+  /* 1. Make the container a positioning context */
+  @apply p-6 relative z-0 rounded-2xl; 
+  /* Note: The 'p-6' padding is kept here to space the content inside */
 }
 
-.grid-special-color {
-  @apply p-6 bg-gradient-to-b from-royal to-lavender rounded-2xl;
+.grid-default-color::before {
+  content: '';
+  /* 2. Position the pseudo-element to cover the whole div */
+  @apply absolute inset-0 z-[-1] rounded-2xl;
+  
+  /* 3. Define the semi-transparent gradient here */
+  /* This uses CSS functions to create the transparent colors. 
+     You will need to substitute the RGB values for your custom colors ('storm' and 'indigo'). 
+     I've used common dark color placeholders (e.g., a dark blue/gray) for illustration. */
+  background: linear-gradient(to bottom, 
+    rgba(0, 37, 74, 0.5), /* Storm @ 70% Opacity */
+    rgba(23, 0, 40, 0.5)  /* Indigo @ 70% Opacity */
+  );
 }
+
+/* The main container becomes a positioning context and holds the padding. 
+   We remove the background and opacity from here.
+*/
+.grid-special-color {
+  @apply p-6 relative z-0 rounded-2xl; 
+}
+
+/* The ::before pseudo-element holds the transparent background.
+*/
+.grid-special-color::before {
+  content: '';
+  @apply absolute inset-0 z-[-1] rounded-2xl;
+  
+  /* SUBSTITUTE RGB VALUES HERE: 
+     Royal and Lavender colors are defined using rgba() with 0.3 (30%) opacity.
+  */
+  background: linear-gradient(to bottom, 
+    rgba(65, 105, 225, 0.3), /* Example Royal RGB @ 30% Opacity */
+    rgba(230, 230, 250, 0.3)  /* Example Lavender RGB @ 30% Opacity */
+  );
+}
+/* The main container becomes a positioning context and holds the padding. 
+   We remove the background and opacity from here.
+*/
 .grid-black-color {
-  @apply p-6 bg-gradient-to-tl from-[#3A3A3A] via-[#242424] to-[#3A3A3A] rounded-2xl;
+  @apply p-6 relative z-0 rounded-2xl;
+}
+
+/* The ::before pseudo-element holds the transparent background.
+*/
+.grid-black-color::before {
+  content: '';
+  @apply absolute inset-0 z-[-1] rounded-2xl;
+
+  /* RGB for #3A3A3A is (58, 58, 58)
+     RGB for #242424 is (36, 36, 36)
+     Colors are defined using rgba() with 0.5 (50%) opacity.
+  */
+  background: linear-gradient(to top left, 
+    rgba(58, 58, 58, 0.5), /* #3A3A3A @ 50% Opacity */
+    rgba(36, 36, 36, 0.5), /* #242424 @ 50% Opacity */
+    rgba(58, 58, 58, 0.5)  /* #3A3A3A @ 50% Opacity */
+  );
 }
 
 /* Contact Section*/
