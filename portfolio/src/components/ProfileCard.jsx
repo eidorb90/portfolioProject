@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useCallback, useMemo } from "react";
-import ElectricBorder from "../components/ElectricBorder"
 import "./ProfileCard.css";
 
 const DEFAULT_BEHIND_GRADIENT =
